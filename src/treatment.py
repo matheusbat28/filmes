@@ -1,10 +1,10 @@
 import pandas as pd
 import json
-from funticions import value_by_dict
+from function.funticions import value_by_dict
 
 list = []
 dict_json = {}
-execel_files = pd.read_excel("notas_filmes.xlsx")
+execel_files = pd.read_excel("src/files/notas_filmes.xlsx")
 
 value_by_dict(list, execel_files.get('Filmes'),'Filmes')
 value_by_dict(list, execel_files.get('Marcos'),'Marcos')
@@ -21,5 +21,5 @@ for x in list:
     dict_json[f'f{cont}'] = x
     cont += 1 
 
-with open('filmes.json', 'w', encoding='utf-8') as file_json:
+with open('src/files/filmes.json', 'w', encoding='utf-8') as file_json:
     file_json.write(json.dumps(dict_json))
