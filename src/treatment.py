@@ -5,9 +5,10 @@ from function.funticions import value_by_dict
 from apis.google import main
 
 main()
+path_file = "src/files/notas_filmes.xlsx"
 list = []
 dict_json = {}
-execel_files = pd.read_excel(r"src\files\notas_filmes.xlsx")
+execel_files = pd.read_excel(path_file)
 
 for x in execel_files:
     if x == 0:
@@ -23,4 +24,4 @@ for x in list:
 with open('src/files/filmes.json', 'w', encoding="UTF-8") as file_json:
     file_json.write(json.dumps(dict_json))
 
-os.remove(r"src\files\notas_filmes.xlsx")
+os.remove(path_file)

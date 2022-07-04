@@ -40,7 +40,7 @@ def main():
         values = result.get('values', [])
 
         xlsx = pd.DataFrame(data= values)
-        xlsx.to_excel(r'src\files\notas_filmes.xlsx', encoding="UTF-8", header=False )
+        xlsx.to_excel('src/files/notas_filmes.xlsx', encoding="UTF-8", header=False )
     except HttpError as err:
         print(err)
 
