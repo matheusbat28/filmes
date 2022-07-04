@@ -1,5 +1,6 @@
 import pandas as pd
 import json
+import os
 from function.funticions import value_by_dict
 from apis.google import main
 
@@ -8,21 +9,18 @@ list = []
 dict_json = {}
 execel_files = pd.read_excel(r"src\files\notas_filmes.xlsx")
 
+for x in execel_files:
+    if x == 0:
+        continue
+    value_by_dict(list, execel_files.get(f'{x}'),f'{x}')
 
-value_by_dict(list, execel_files.get('Filmes'),'Filmes')
-value_by_dict(list, execel_files.get('Marcos'),'Marcos')
-value_by_dict(list, execel_files.get('Lucas'),'Lucas')
-value_by_dict(list, execel_files.get('Matheus'),'Matheus')
-value_by_dict(list, execel_files.get('Igor'),'Igor')
-value_by_dict(list, execel_files.get('Vitor'),'Vitor')
-value_by_dict(list, execel_files.get('Bia'),'Bia')
-value_by_dict(list, execel_files.get('Gui'),'Gui')
-value_by_dict(list, execel_files.get('Status'),'Status')
 
 cont = 1
 for x in list:
     dict_json[f'f{cont}'] = x
     cont += 1 
 
-with open('src/files/filmes.json', 'w', encoding='utf-8') as file_json:
+with open('src/files/filmes.json', 'w', encoding="UTF-8") as file_json:
     file_json.write(json.dumps(dict_json))
+
+os.remove(r"src\files\notas_filmes.xlsx")
