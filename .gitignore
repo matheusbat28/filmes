@@ -1,3 +1,5 @@
 __pycache__
 venv
 filmes.json
+client_secrets.json
+token.json
