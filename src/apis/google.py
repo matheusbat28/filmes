@@ -7,6 +7,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+import pandas as pd
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
@@ -29,7 +30,7 @@ def main():
             creds = flow.run_local_server(port=0)
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
-'''
+
     try:
         service = build('sheets', 'v4', credentials=creds)
 
@@ -38,16 +39,11 @@ def main():
                                     range=SAMPLE_RANGE_NAME).execute()
         values = result.get('values', [])
 
-        if not values:
-            print('No data found.')
-            return
-
-        print('Name, Major:')
-        for row in values:
-            print('%s, %s' % (row[0], row[4]))
+        xlsx = pd.DataFrame(data= values)
+        xlsx.to_excel(r'src\files\notas_filmes.xlsx', encoding="UTF-8", header=False )
     except HttpError as err:
         print(err)
-'''
+
 
 if __name__ == '__main__':
     main()

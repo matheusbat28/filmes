@@ -1,10 +1,13 @@
 import pandas as pd
 import json
 from function.funticions import value_by_dict
+from apis.google import main
 
+main()
 list = []
 dict_json = {}
-execel_files = pd.read_excel("src/files/notas_filmes.xlsx")
+execel_files = pd.read_excel(r"src\files\notas_filmes.xlsx")
+
 
 value_by_dict(list, execel_files.get('Filmes'),'Filmes')
 value_by_dict(list, execel_files.get('Marcos'),'Marcos')
