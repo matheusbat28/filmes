@@ -4,7 +4,7 @@ def value_by_dict(list, list_Name, name):
     if name == 'Filmes':
         for x in list_Name: 
             dict_filmes = {}
-            dict_filmes[name] = x
+            dict_filmes[name] = x.strip().capitalize()
             list.append(dict_filmes)
 
     elif name == 'Status':
@@ -13,7 +13,7 @@ def value_by_dict(list, list_Name, name):
             if x_str == "nan":
                 list[cont][name] = ' '  
             else:        
-                list[cont][name] = x_str.capitalize()
+                list[cont][name] = x_str.strip().capitalize()
                 cont += 1
     else:
         for x in list_Name: 
@@ -21,5 +21,5 @@ def value_by_dict(list, list_Name, name):
             if x_str == "nan":
                 list[cont][name] = '0'  
             else:        
-                list[cont][name] = x_str.capitalize()
+                list[cont][name] = x_str.strip().capitalize()
             cont += 1

@@ -12,7 +12,7 @@ import pandas as pd
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 SAMPLE_SPREADSHEET_ID = '1RRTqLZWXDEU1gJttXyYwLo0tjFdnBF6pqV7Z_MGpEoU'
-SAMPLE_RANGE_NAME = 'Página1!A1:I151'
+SAMPLE_RANGE_NAME = 'Página1!A1:I'
 
 
 def main():
