@@ -28,7 +28,7 @@ def main():
             flow = InstalledAppFlow.from_client_secrets_file(
                 'src/acess/client_secrets.json', SCOPES)
             creds = flow.run_local_server(port=0)
-        with open('token.json', 'w') as token:
+        with open('src/acess/token.json', 'w') as token:
             token.write(creds.to_json())
 
     try:
